@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: pv
+metadata:
+  name: pv-static
+spec:
+  accessmodes: 
+    - ReadWriteOnce
+  capacity:
+    storage: 1Gi
+  awsElasticBlockStorage:
+    volumeID: <volumeid>
+    fsType: ext4 

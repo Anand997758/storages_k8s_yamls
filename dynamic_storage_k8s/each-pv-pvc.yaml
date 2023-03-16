@@ -1,0 +1,23 @@
+#when this we will use means we need each pod one pvc and one pv we go for this syntax
+apiVersion: v1
+kind: Statefulset
+metadata:
+  name: sts
+spec:
+  replicas: 3
+  containers:
+    name: sts-dep
+    image: image-id
+    volumeMounts:
+      - mountPath: "/var/www/html"
+        name: deployment path
+    volumeClaimTemplates:
+    - metadata:
+        name: pvc_dynamic
+      spec:
+        accessmodes:
+          - ReadWriteOnce
+        storageClassName: aws_storage
+        resources:
+          requests: 
+            storage: 1Gi 

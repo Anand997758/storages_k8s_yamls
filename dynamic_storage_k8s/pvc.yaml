@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: pvc
+metadata:
+  name: pvc_dynamic
+spec:
+  accessmodes:
+  - ReadWriteOnce
+  storageClassName: aws_storage
+  resources:
+    requests: 
+      storage: 1Gi

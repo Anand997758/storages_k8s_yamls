@@ -1,0 +1,17 @@
+#when ever we use this one all pods are created only one pvc and pv
+apiVersion: v1
+kind: Statefulset
+metadata:
+  name: sts
+spec:
+  replicas: 3
+  containers:
+    name: sts-dep
+    image: image-id
+    volumeMounts:
+      - mountPath: "/var/www/html"
+        name: deployment path
+    volumes:
+      - name: pvc name
+        persistentVolumeClaim:
+          name: pvc_dynamic

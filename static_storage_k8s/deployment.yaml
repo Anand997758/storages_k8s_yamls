@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Deployment
+metadata:
+  name: apache
+spec:
+  replicas: 3
+  containers:
+    name: apache
+    image: image_id
+    volumeMounts:
+    - mountPath: "/var/www/html"
+      name: mypd
+volumes:
+  - name:  mypd
+    persistentVolumeClaim:
+      claimName: pvc_static
